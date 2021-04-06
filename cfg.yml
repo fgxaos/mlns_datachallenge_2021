@@ -1,0 +1,75 @@
+### EXPERIMENT VARIABLES ###
+method: "boosting" # ['random', 'baseline', 'svm', 'rand_forest', 'log_reg', 'boosting', 'graphsage', 'gat']
+validation: False
+val_split: 0.4 # percentage of the training dataset to use for validation
+number_tries: 1
+
+use_wandb: False
+parallel: False # still issues when `parallel` is True
+
+### SVM MODEL VARIABLES ###
+svm:
+  C: 0.01
+  max_iter: 10000
+  class_weight: 'balanced'
+
+### RANDOM FOREST MODEL VARIABLES ###
+rand_forest:
+  n_estimators: 300
+  criterion: 'entropy'
+  max_depth: 30
+  class_weight: 'balanced'
+  random_state: 0
+
+### LOGISTIC REGRESSION MODEL VARIABLES ###
+log_reg:
+  penalty: 'l1'
+  dual: False
+  C: 1.0
+  class_weight: 'balanced'
+  random_state: 0
+  max_iter: 10000
+
+### BOOSTING MODEL VARIABLES ###
+boosting:
+  loss: 'deviance'
+  lr: 0.1
+  n_estimators: 100
+  criterion: 'friedman_mse'
+  max_depth: 5
+  random_state: 0
+
+### GRAPHSAGE MODEL VARIABLES ###
+graphsage:
+  batch_size: 32
+  n_epochs: 9
+  dropout: 0.1
+  lr: 0.0005
+  checkpoints: "models/graphsage/checkpoints"
+  hidden_dims:
+    - 64
+  num_samples: -1
+  weight_decay: 0.0005
+  agg_class: "MaxPoolAggregator"
+
+### GAT MODEL VARIABLES ###
+gat:
+  checkpoints: "models/gat/checkpoints"
+  n_epochs: 1
+  n_hid: 8
+  dropout: 0.6 
+  n_heads: 8
+  alpha: 0.2
+  batch_size: 100
+  lr: 0.005
+  weight_decay: 0.0005
+
+### PATH VARIABLES ###
+paths:
+  pred_folder: "data/predictions"
+  train_set: "data/training_set.txt" 
+  test_set: "data/testing_set.txt"
+  node_infos: "data/node_information.csv"
+
+### VARIABLES WHICH SHOULD NOT BE CHANGED ###
+language: 'english'

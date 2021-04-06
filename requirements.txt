@@ -1,0 +1,9 @@
+numpy
+jgraph
+sklearn
+nltk
+pyyaml
+wandb
+ray
+tabulate
+tensorboardX
