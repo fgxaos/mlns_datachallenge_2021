@@ -1,0 +1,8 @@
+# Ignore virtual environment
+venv
+# Ignore data
+data/*
+# Ignore cache files
+*.pyc
+# Ignore wandb files
+wandb
